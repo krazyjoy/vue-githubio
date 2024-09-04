@@ -46,7 +46,7 @@ const slides = [
         image: kgilImage,
         description: 'A comprehensive course training management platform meticulously designed to empower a company’s workforce with the specialized knowledge and skills essential for each department’s success. This website serves as an invaluable resource, offering tailored training programs that ensure employees are well-equipped to excel in their respective roles, fostering both individual growth and overall organizational excellence.',
         github: 'https://github.com/krazyjoy/project-management',
-        graph: "/rag"
+        graph: "/vue-githubio/rag"
     },
     {
         title: 'IaaS Elastic Face Recognition App', 
@@ -207,7 +207,7 @@ const hoverImg = (image_name) => {
     margin-left: 20px;
     padding-left: 20px;
     line-height: 1;
-    -webkit-text-stroke:2px #c6fc01;
+    -webkit-text-stroke:2px #63c0f5;
 }
 
 .slide-container{
@@ -222,6 +222,7 @@ const hoverImg = (image_name) => {
     position: relative;
     margin-left: 20px;
     justify-content: center;
+    margin-top: 20px;
 }
 .slide-content{
     display: flex;
@@ -235,6 +236,7 @@ const hoverImg = (image_name) => {
     padding-right: 20px;
     position: relative;
     z-index: 1;
+   
 }
 
 .slide-image{
