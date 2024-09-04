@@ -9,6 +9,9 @@
                 <p>Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model,
                     so it references an authoritative knowledge base outside of its training data before generating
     a response.</p>
+    <div class="mb-5">
+                    <img src="@/assets/Kgil/rag_profile.png" alt="" height="300">
+                </div>
             </div>
             
             <div id="challenges-of-llms" class="section">
@@ -50,6 +53,7 @@
                 <p>
                     Each of these features contributes to a streamlined, efficient document management and information retrieval process.
                 </p>
+
             </div>
             <div id="develop" class="section">
                 <h1><b>Develop</b></h1>
