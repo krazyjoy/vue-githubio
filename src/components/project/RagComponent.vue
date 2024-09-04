@@ -10,7 +10,7 @@
                     so it references an authoritative knowledge base outside of its training data before generating
     a response.</p>
     <div class="mb-5">
-                    <img src="@/assets/Kgil/rag_profile.png" alt="" height="300">
+                    <img class="ms-2 rounded" src="@/assets/Kgil/rag_breakdown.png" alt="" height="300">
                 </div>
             </div>
             
@@ -34,7 +34,7 @@
             <div id="process-of-rag" class="section">
                 <h3><b>Process of RAG</b></h3>
                 <div class="mb-5">
-                    <img src="@/assets/Kgil/rag_workflow.png" alt="" height="300">
+                    <img class="ps-3 rounded-2" src="@/assets/Kgil/rag_workflow.png" alt="" height="300">
                 </div>
                 <ul>
                     <li>
@@ -171,18 +171,19 @@ onBeforeUnmount(()=>{
     background: #fff;
     font-family: "Raleway";
     width: 90%;
+    margin-top: 20vh;
     letter-spacing: 0.5;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    border: solid 1px #63c0f5;
+    border: solid 3px #63c0f5;
     padding-top: 10px;
     z-index: 10;
 }
 .blank-left{
     flex: 1;
     max-width: 5%;
-    border-right: solid 1px #63c0f5;;
+    border-right: solid 2px #63c0f5;;
 }
 .content{
     flex: 2;
@@ -193,7 +194,7 @@ onBeforeUnmount(()=>{
 
 .sidebar{
     flex: 2;
-    border-left: solid 1px #63c0f5;
+    border-left: solid 2px #63c0f5;
     max-width: 20%;
     top: 0;
     position: sticky;
