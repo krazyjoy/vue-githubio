@@ -21,7 +21,7 @@ const router = createRouter({
       component: CourseManagementView
     },
     {
-      path: '/project',
+      path: '/',
       name: 'project',
       component: ProjectView,
     },
