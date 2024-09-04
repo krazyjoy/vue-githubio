@@ -6,7 +6,7 @@
                 <span class="title">{{slide.title}}</span>
                 <div class="slide-container p-3">
                     <div class="slide-content" v-if="!isExpanded[slide.title]">
-                        <span class="slide-title gs_reveal fromLeft" data-delay-sec="0.2" >{{slide.title}}</span>
+                        <span class="slide-title mb-5 gs_reveal fromLeft" data-delay-sec="0.2" >{{slide.title}}</span>
                         <span class="gs_reveal fromLeft" data-delay-sec="0.4">
                             {{ slide.description }}
                         </span>
@@ -31,7 +31,7 @@
 </template>
 <script setup>
 import {onBeforeMount, onMounted, ref} from 'vue';
-import kgilImage from '@/assets/projects/kgil-website-design.jpg';
+import kgilImage from '@/assets/projects/rag_profile.png';
 import djangoSSO from '@/assets/projects/django-third-party-login.png';
 import iaasImage from '@/assets/projects/iaas-elastic-app.jpg';
 import aiCupImage from '@/assets/projects/voice-disease-analysis.png';
@@ -46,7 +46,7 @@ const slides = [
         image: kgilImage,
         description: 'A comprehensive course training management platform meticulously designed to empower a company’s workforce with the specialized knowledge and skills essential for each department’s success. This website serves as an invaluable resource, offering tailored training programs that ensure employees are well-equipped to excel in their respective roles, fostering both individual growth and overall organizational excellence.',
         github: 'https://github.com/krazyjoy/project-management',
-        graph: "http://localhost:5173/rag"
+        graph: "/rag"
     },
     {
         title: 'IaaS Elastic Face Recognition App', 
@@ -187,7 +187,7 @@ const hoverImg = (image_name) => {
 <style scoped>
 .section-container{
     padding-top: 10vh;
-    height: 500vh;
+    height: 400vh;
     max-width: 1800px;
     color: white;
     background-color: #000;
@@ -195,14 +195,17 @@ const hoverImg = (image_name) => {
     box-sizing: border-box;
     overflow: hidden;
     line-height: 1;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
 }
 .title{
     font-family: "Raleway", sans-serif;
     display: block;
     font-size: 64px;
     color: white;
-    margin: 10px;
-    padding: 10px;
+    margin-left: 20px;
+    padding-left: 20px;
     line-height: 1;
     -webkit-text-stroke:2px #c6fc01;
 }
@@ -213,7 +216,7 @@ const hoverImg = (image_name) => {
     flex-wrap: nowrap;
     align-items: center;
     overflow: hidden;
-    height: 100vh;
+    height: 80vh;
     margin-right: 20px;
     box-sizing: border-box;
     position: relative;
