@@ -30,6 +30,9 @@
                         <div class="child-component component">
                             <PrideComponent  v-if="isExpanded['PRIDE'] && slide.id==='PRIDE'" :expand="isExpanded['PRIDE']" @close_expand="toggleExpand('PRIDE')" />
                         </div>
+                        <div class="child-component component">
+                            <iaasComponent  v-if="isExpanded['AWS'] && slide.id==='AWS'" :expand="isExpanded['AWS']" @close_expand="toggleExpand('AWS')" />
+                        </div>
                     </div>
                     
 <!--                     
@@ -52,6 +55,8 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import RagComponent from '@/components/project/RagComponent.vue';
 import PrideComponent from '@/components/project/Pride.vue'
 import Pride from '@/views/pride/pride.vue';
+import iaasComponent from '@/components/iaas/iaasComponent.vue';
+
 
 const slides = [
     {
@@ -79,7 +84,7 @@ const slides = [
         graph: "#"
     },
     {
-        id: 'Django',
+        id: 'DJANGO',
         title: 'Django SSO App',
         image: djangoSSO,
         description: 'A login web application supports Google/Facebook third party login method using Django backend and React framework.',
@@ -190,11 +195,11 @@ const animateFrom = (elem, direction=1)=>{
 
 
 const imgFlipped = ref({
-    'Internal AI Mentor': false,
-    'IaaS Elastic Face Recognition App': false,
-    'Django SSO App': false,
-    'Voice Disease Analysis': false,
-    'PRIDE-multimodal early depression detection system': false,
+    'RAG': false,
+    'AWS': false,
+    'DJANGO': false,
+    'AICUP': false,
+    'PRIDE': false,
 });
 const clickImg = (image_name) => {
     if(imgFlipped.value.hasOwnProperty(image_name)){

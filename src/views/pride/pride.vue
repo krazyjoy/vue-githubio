@@ -101,10 +101,10 @@ function logToObject() {
     padding-top: 5vh;
 }
 
-.vue-flow__pane.vue-flow__container.draggable {
-  height: 120vh;
-  border-radius: 10px;
+.graph{
+  width: 80vw;
 }
+
 
 
 

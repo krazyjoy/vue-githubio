@@ -1,5 +1,5 @@
 <template>
-    <div class="custom-node">
+    <div class="style-node">
         <Handle type="source" position="right" />
         <Handle type="target" position="left" />
         <div class="node-label" v-html="parseMarkdown(data.label)"></div>
@@ -27,7 +27,7 @@ const parseMarkdown = (text) => {
 }
 </script>
 <style>
-.custom-node{
+.style-node{
     display: block;
     width: 50vw;
     padding: 10px;

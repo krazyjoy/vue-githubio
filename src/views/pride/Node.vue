@@ -44,4 +44,4 @@ const parseMarkdown = (text) => {
     white-space: pre-wrap; /* process \n */
 }
 
-</style>
+</style> -->

@@ -6,7 +6,7 @@ import { ControlButton, Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
 
 import {graphStore} from '@/stores/graph';
-import CustomNode from '@/views/langchain/Node.vue';
+import Node from '@/views/langchain/Node.vue'
 
 
 import nodeData from '@/components/langchain/nodes.js'
@@ -26,7 +26,7 @@ onMounted(()=>{
   
 })
 
-const nodeTypes = {custom: CustomNode};
+const nodeTypes = {custom: Node};
 
 const NodeForm = ref({
   "node_id": null,
@@ -208,7 +208,7 @@ const connectionValidation= (connection) => {
             v-model:edges="edges"
             class="basic-flow"
             :connection-validator="connectionValidation"
-            :default-viewport="{ zoom: 1.5 }"
+            :default-viewport="{ zoom: 4.0 }"
             :min-zoom="0.2"
             :max-zoom="4"
             :node-types="nodeTypes"
@@ -417,11 +417,13 @@ const connectionValidation= (connection) => {
     border-radius: 10px;
     margin-top: 5vh;
     padding-top: 5vh;
+
 }
 
 .vue-flow__pane.vue-flow__container.draggable {
-  height: 120vh;
+  /* height: 120vh; */
   border-radius: 10px;
+
 }
 
 .usercontrol{
