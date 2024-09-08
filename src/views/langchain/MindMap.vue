@@ -8,7 +8,7 @@ import { MiniMap } from '@vue-flow/minimap'
 import {graphStore} from '@/stores/graph';
 import CustomNode from '@/views/langchain/Node.vue';
 
-import nodesData from '@/components/langchain/nodes.js';
+
 import nodeData from '@/components/langchain/nodes.js'
 
 
@@ -21,8 +21,8 @@ const nodeDataRef = ref([]);
 nodeDataRef.value = [...nodeData];
 
 onMounted(()=>{
-  graph.getAllNodes()
-  graph.getAllEdges()
+  // graph.getAllNodes()
+  // graph.getAllEdges()
   
 })
 
@@ -139,12 +139,7 @@ const updateNodeData = async() => {
   const updateNodeInDB = graph.updateSingleNode(tempNodeInfo.value.data, tempNodeInfo.value);
   print("updateNode: ", updateNodeInDB);
 }
-/**
- * `useVueFlow` provides:
- * 1. a set of methods to interact with the VueFlow instance (like `fitView`, `setViewport`, `addEdges`, etc)
- * 2. a set of event-hooks to listen to VueFlow events (like `onInit`, `onNodeDragStop`, `onConnect`, etc)
- * 3. the internal state of the VueFlow instance (like `nodes`, `edges`, `viewport`, etc)
- */
+
 const { onInit, onNodeDragStop, onConnect, addEdges, setViewport, toObject } = useVueFlow()
 
 
@@ -152,45 +147,23 @@ const { onInit, onNodeDragStop, onConnect, addEdges, setViewport, toObject } = u
 // our dark mode toggle flag
 const dark = ref(false)
 
-/**
- * This is a Vue Flow event-hook which can be listened to from anywhere you call the composable, instead of only on the main component
- * Any event that is available as `@event-name` on the VueFlow component is also available as `onEventName` on the composable and vice versa
- *
- * onInit is called when the VueFlow viewport is initialized
- */
+
 onInit((vueFlowInstance) => {
   // instance is the same as the return of `useVueFlow`
   vueFlowInstance.fitView()
 })
 
-/**
- * onNodeDragStop is called when a node is done being dragged
- *
- * Node drag events provide you with:
- * 1. the event object
- * 2. the nodes array (if multiple nodes are dragged)
- * 3. the node that initiated the drag
- * 4. any intersections with other nodes
- */
+
 onNodeDragStop(({ event, nodes, node }) => {
   console.log('Node Drag Stop', { event, nodes, node })
 })
 
-/**
- * onConnect is called when a new connection is created.
- *
- * You can add additional properties to your new edge (like a type or label) or block the creation altogether by not calling `addEdges`
- */
+
 onConnect((connection) => {
   addEdges(connection)
 })
 
-/**
- * To update a node or multiple nodes, you can
- * 1. Mutate the node objects *if* you're using `v-model`
- * 2. Use the `updateNode` method (from `useVueFlow`) to update the node(s)
- * 3. Create a new array of nodes and pass it to the `nodes` ref
- */
+
 function updatePos() {
   nodes.value = nodes.value.map((node) => {
     return {
@@ -203,16 +176,11 @@ function updatePos() {
   })
 }
 
-/**
- * toObject transforms your current graph data to an easily persist-able object
- */
+
 function logToObject() {
   console.log(toObject())
 }
 
-/**
- * Resets the current viewport transformation (zoom & pan)
- */
 function resetTransform() {
   setViewport({ x: 0, y: 0, zoom: 1 })
 }
@@ -221,31 +189,6 @@ function toggleDarkMode() {
   dark.value = !dark.value
 }
 
-
-// const nodes = [
-//   {
-//     id: 'node1',
-//     data: {label: 'data1'},
-//     class: 'light',
-//     type: 'custom',
-//     position: {x: 300, y: 300},
-//   },
-//   {
-//     id: 'node2',
-//     data: {label: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia autem architecto quis ab expedita. Commodi, adipisci necessitatibus facere quasi quod repudiandae cum earum praesentium sunt. Fuga, ducimus! Incidunt, ipsum eveniet!'},
-//     class: 'light',
-//     type: 'custom',
-//     position: {x: 500, y: 300},
-//   }
-// ]
-// const edges = [
-//   {
-//     id: 'e-node1-node2',
-//     source: 'node1',
-//     target: 'node2',
-
-//   }
-// ]
 
 const connectionValidation= (connection) => {
   // Allow connections only from source to source
@@ -256,6 +199,9 @@ const connectionValidation= (connection) => {
 
 <template>
     <div class="mindmap">
+      <div>
+        <button class="btn btn-primary" @click="$emit('close_mindmap')">X</button>
+      </div>
       <div class="graph">
         <VueFlow
             v-model:nodes="nodeDataRef"
@@ -268,7 +214,6 @@ const connectionValidation= (connection) => {
             :node-types="nodeTypes"
             :style="{ width: '100%', height: '100vh' }"
         >
-          
             <Background pattern-color="#aaa" :gap="16" />
 
             <MiniMap position="bottom-right"/>
@@ -451,7 +396,6 @@ const connectionValidation= (connection) => {
                   <td>{{ tempNodeInfo.position_x }}</td>
                   <td>{{ tempNodeInfo.position_y }}</td>
                 </tr>
-                
               </tbody>
             </table>
             </div>
@@ -464,20 +408,22 @@ const connectionValidation= (connection) => {
 .mindmap{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 120vh;
+    width: 80%;
+    height: 90vh;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #fff;
+    color: black;
+    border: solid 3px #63c0f5;
+    border-radius: 10px;
+    margin-top: 5vh;
+    padding-top: 5vh;
 }
 
 .vue-flow__pane.vue-flow__container.draggable {
   height: 120vh;
+  border-radius: 10px;
 }
-.graph{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-}
+
 .usercontrol{
   display: flex;
   margin-top: 120vh;
