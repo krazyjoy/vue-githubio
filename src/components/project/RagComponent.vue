@@ -179,6 +179,7 @@ onBeforeUnmount(()=>{
     border: solid 3px #63c0f5;
     padding-top: 10px;
     z-index: 10;
+    
 }
 .blank-left{
     flex: 1;
@@ -190,6 +191,7 @@ onBeforeUnmount(()=>{
     padding: 20px;
     color: white;
     max-width: 75%;
+    margin-bottom: 5vh;
 }
 
 .sidebar{
@@ -246,6 +248,15 @@ onBeforeUnmount(()=>{
     .content h3{
         font-size: 16px;
     }
+    img{
+        max-width: 300px;
+        max-height: 200px;
+    }
 }
-
+@media only screen and (min-width: 601px) and (max-width: 1024px){
+    img{
+        max-width: 300px;
+        max-height: 200px;
+    }
+}
 </style>
